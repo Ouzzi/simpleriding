@@ -24,6 +24,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.GOLDEN_HORSE_ARMOR)
                 .add(Items.DIAMOND_HORSE_ARMOR);
 
+        valueLookupBuilder(ItemTags.FOOT_ARMOR_ENCHANTABLE)
+                .add(Items.LEATHER_HORSE_ARMOR)
+                .add(Items.IRON_HORSE_ARMOR)
+                .add(Items.GOLDEN_HORSE_ARMOR)
+                .add(Items.DIAMOND_HORSE_ARMOR);
+
         valueLookupBuilder(ModTags.Items.SADDLE_ENCHANTABLE)
                 .add(Items.SADDLE)
                 .add(Items.BLACK_HARNESS)

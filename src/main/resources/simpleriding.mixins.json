@@ -6,6 +6,7 @@
     "AbstractHorseEntityAccessor",
     "AnvilScreenHandlerMixin",
     "EnchantmentHelperMixin",
+    "EnchantmentMixin",
     "HorseEnchantmentMixin",
     "SwiftRideTickMixin"
   ],
