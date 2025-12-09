@@ -1,0 +1,24 @@
+{
+  "itemgroup.simpleriding.riding_items": "Reit-Gegenstände",
+
+  "enchantment.simpleriding.tailwind": "Rückenwind",
+  "enchantment.simpleriding.tailwind.desc": "Erhöht die Bewegungsgeschwindigkeit des gerittenen Wesens.",
+  "enchantment.simpleriding.leaping": "Sprungkraft",
+  "enchantment.simpleriding.leaping.desc": "Erhöht die Sprunghöhe des gerittenen Pferdes.",
+
+  "text.autoconfig.simpleriding.title": "Simple Riding Konfiguration",
+  "text.autoconfig.simpleriding.option.worldGen": "Weltgenerierung",
+  "text.autoconfig.simpleriding.option.worldGen.enableVillagerTrades": "Dorfbewohner-Handel aktivieren",
+  "text.autoconfig.simpleriding.option.worldGen.enableVillagerTrades.@Tooltip": "Wenn aktiviert, können Bibliothekare die neuen verzauberten Bücher verkaufen.",
+  "text.autoconfig.simpleriding.option.worldGen.enableLootTableChanges": "Loot-Tabellen Änderungen",
+  "text.autoconfig.simpleriding.option.worldGen.enableLootTableChanges.@Tooltip": "Wenn aktiviert, können die Verzauberungen in Kisten gefunden werden.",
+
+  "text.autoconfig.simpleriding.option.enchantments": "Verzauberungs-Balance",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide": "Rückenwind Einstellungen",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide.ghastSpeedMultiplier": "Ghast Geschwindigkeits-Multiplikator",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide.horseSpeedMultiplier": "Pferde Geschwindigkeits-Multiplikator",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide.otherSpeedMultiplier": "Andere Mobs Geschwindigkeits-Multiplikator",
+
+  "text.autoconfig.simpleriding.option.enchantments.horseJump": "Sprungkraft Einstellungen",
+  "text.autoconfig.simpleriding.option.enchantments.horseJump.jumpStrengthMultiplier": "Sprungstärke Multiplikator"
+}

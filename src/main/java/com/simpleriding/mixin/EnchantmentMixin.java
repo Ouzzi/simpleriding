@@ -18,30 +18,23 @@ public class EnchantmentMixin {
 
     @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
     private void restrictHorseArmorGlobal(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        // Wir greifen nur ein, wenn es um Pferderüstung geht
         if (isHorseArmor(stack.getItem())) {
 
-            // 'this' ist die Instanz der Verzauberung
             Enchantment self = (Enchantment) (Object) this;
 
-            // Da wir hier keinen Zugriff auf die Registry-ID haben (dynamische Registry),
-            // nutzen wir den Translation-Key der Beschreibung zur Identifizierung.
-            // Das ist ein sicherer Weg, um Vanilla-Verzauberungen zu unterscheiden.
             String key = getEnchantmentTranslationKey(self);
 
-            // Wenn wir den Key nicht lesen können, lassen wir es sicherheitshalber zu (oder verbieten es).
             if (key == null) return;
 
             // WHITELIST: Was ist erlaubt?
             boolean isAllowed =
-                    key.contains("protection") ||       // Schutz, Schusswischer, Feuerschutz...
-                            key.contains("feather_falling") ||  // Federfall
-                            key.contains("unbreaking") ||       // Haltbarkeit
-                            key.contains("thorns") ||           // Dornen
-                            key.contains("mending") ||          // Reparatur
-                            key.contains(Simpleriding.MOD_ID);  // Unsere eigenen Mods (Tailwind, Leaping)
+                key.contains("protection") ||
+                key.contains("feather_falling") ||
+                key.contains("unbreaking") ||
+                key.contains("thorns") ||
+                key.contains("mending") ||
+                key.contains(Simpleriding.MOD_ID);
 
-            // Wenn es NICHT erlaubt ist (z.B. depth_strider, soul_speed, frost_walker), verbieten wir es hart.
             if (!isAllowed) {
                 cir.setReturnValue(false);
             }

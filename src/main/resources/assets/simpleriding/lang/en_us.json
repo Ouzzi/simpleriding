@@ -1,0 +1,24 @@
+{
+  "itemgroup.simpleriding.riding_items": "Riding Items",
+
+  "enchantment.simpleriding.tailwind": "Tailwind",
+  "enchantment.simpleriding.tailwind.desc": "Increases movement speed of the ridden entity.",
+  "enchantment.simpleriding.leaping": "Leaping",
+  "enchantment.simpleriding.leaping.desc": "Increases jump height of the ridden horse.",
+
+  "text.autoconfig.simpleriding.title": "Simple Riding Configuration",
+  "text.autoconfig.simpleriding.option.worldGen": "World Generation",
+  "text.autoconfig.simpleriding.option.worldGen.enableVillagerTrades": "Enable Villager Trades",
+  "text.autoconfig.simpleriding.option.worldGen.enableVillagerTrades.@Tooltip": "If enabled, Librarians may sell custom enchanted books.",
+  "text.autoconfig.simpleriding.option.worldGen.enableLootTableChanges": "Enable Loot Table Changes",
+  "text.autoconfig.simpleriding.option.worldGen.enableLootTableChanges.@Tooltip": "If enabled, custom enchantments can be found in chests.",
+
+  "text.autoconfig.simpleriding.option.enchantments": "Enchantment Balancing",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide": "Tailwind Settings",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide.ghastSpeedMultiplier": "Ghast Speed Multiplier",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide.horseSpeedMultiplier": "Horse Speed Multiplier",
+  "text.autoconfig.simpleriding.option.enchantments.swiftRide.otherSpeedMultiplier": "Other Mobs Speed Multiplier",
+
+  "text.autoconfig.simpleriding.option.enchantments.horseJump": "Leaping Settings",
+  "text.autoconfig.simpleriding.option.enchantments.horseJump.jumpStrengthMultiplier": "Jump Strength Multiplier"
+}
