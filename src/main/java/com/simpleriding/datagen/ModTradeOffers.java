@@ -39,13 +39,15 @@ public class ModTradeOffers {
                         new WeightedEnchantment(ModEnchantments.TAILWIND, 1, 25),
                         new WeightedEnchantment(ModEnchantments.LEAPING, 1, 20)
                 );
-                factories.add((entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 25), createRandomEnchantedBook(entity, random, advancedPool, 0), 2, 25, 0.5f));
+                // FIX: (world, entity, random)
+                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 25), createRandomEnchantedBook(entity, random, advancedPool, 0), 2, 25, 0.5f));
             });
             TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 5, factories -> {
                 List<WeightedEnchantment> masterPool = List.of(
                         new WeightedEnchantment(ModEnchantments.TAILWIND, 1, 20)
                 );
-                factories.add((entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 25), createRandomEnchantedBook(entity, random, masterPool, 0), 1, 100, 1.0f));
+                // FIX: (world, entity, random)
+                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 25), createRandomEnchantedBook(entity, random, masterPool, 0), 1, 100, 1.0f));
             });
         }
     }
@@ -55,7 +57,7 @@ public class ModTradeOffers {
      */
     private static WeightedEnchantment pickWeighted(List<WeightedEnchantment> pool, Random random) {
         int totalWeight = 0;
-                for (WeightedEnchantment e : pool) totalWeight += e.weight();
+        for (WeightedEnchantment e : pool) totalWeight += e.weight();
         if (totalWeight == 0) {
             return null;
         }
@@ -80,18 +82,22 @@ public class ModTradeOffers {
         ItemStack stack = new ItemStack(Items.ENCHANTED_BOOK);
         ItemEnchantmentsComponent.Builder builder = new ItemEnchantmentsComponent.Builder(ItemEnchantmentsComponent.DEFAULT);
         WeightedEnchantment firstPick = pickWeighted(pool, random);
-        addEnchantmentToBuilder(entity, builder, firstPick);
 
-        // 2. Zweite Verzauberung
-        if (pool.size() > 1 && random.nextInt(100) < chanceForSecond) {
-            WeightedEnchantment secondPick = pickWeighted(pool, random);
-            int attempts = 0;
-            while (secondPick.key().equals(firstPick.key()) && attempts < 10) {
-                secondPick = pickWeighted(pool, random);
-                attempts++;
-            }
-            if (!secondPick.key().equals(firstPick.key())) {
-                addEnchantmentToBuilder(entity, builder, secondPick);
+        // Safety check falls pickWeighted null returned (z.B. leerer Pool)
+        if (firstPick != null) {
+            addEnchantmentToBuilder(entity, builder, firstPick);
+
+            // 2. Zweite Verzauberung
+            if (pool.size() > 1 && random.nextInt(100) < chanceForSecond) {
+                WeightedEnchantment secondPick = pickWeighted(pool, random);
+                int attempts = 0;
+                while (secondPick != null && secondPick.key().equals(firstPick.key()) && attempts < 10) {
+                    secondPick = pickWeighted(pool, random);
+                    attempts++;
+                }
+                if (secondPick != null && !secondPick.key().equals(firstPick.key())) {
+                    addEnchantmentToBuilder(entity, builder, secondPick);
+                }
             }
         }
 

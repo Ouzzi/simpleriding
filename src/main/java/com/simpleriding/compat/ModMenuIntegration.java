@@ -1,5 +1,7 @@
 package com.simpleriding.compat;
 
+/* TODO: Add after UPDATE ->
+
 import com.simpleriding.config.SimpleridingConfig;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
@@ -12,3 +14,5 @@ public class ModMenuIntegration implements ModMenuApi {
         return parent -> AutoConfig.getConfigScreen(SimpleridingConfig.class, parent).get();
     }
 }
+
+ */

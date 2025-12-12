@@ -41,4 +41,5 @@ public class Simpleriding implements ModInitializer {
     }
 }
 
-// TODO: Fix featherfalling not applyable on horseamor
+// TODO:
+// -
