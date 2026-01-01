@@ -34,20 +34,27 @@ public class ModTradeOffers {
 
     public static void registerVillagerTrades() {
         if (Simpleriding.getConfig().worldGen.enableVillagerTrades) {
-            TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 4, factories -> {
+            TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 3, factories -> {
                 List<WeightedEnchantment> advancedPool = List.of(
-                        new WeightedEnchantment(ModEnchantments.TAILWIND, 1, 25),
+                        new WeightedEnchantment(ModEnchantments.TAILWIND, 1, 30),
                         new WeightedEnchantment(ModEnchantments.LEAPING, 1, 20)
                 );
-                // FIX: (world, entity, random)
-                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 25), createRandomEnchantedBook(entity, random, advancedPool, 0), 2, 25, 0.5f));
+                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 10 + random.nextInt(20)), createRandomEnchantedBook(entity, random, advancedPool, 0), 2, 25, 0.5f));
+            });
+            TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 4, factories -> {
+                List<WeightedEnchantment> masterPool = List.of(
+                        new WeightedEnchantment(ModEnchantments.TAILWIND, 2, 20),
+                        new WeightedEnchantment(ModEnchantments.LEAPING, 2, 30)
+                );
+                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 15 + random.nextInt(20)), createRandomEnchantedBook(entity, random, masterPool, 15), 1, 50, 1.0f));
             });
             TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 5, factories -> {
                 List<WeightedEnchantment> masterPool = List.of(
-                        new WeightedEnchantment(ModEnchantments.TAILWIND, 1, 20)
+                        new WeightedEnchantment(ModEnchantments.TAILWIND, 3, 20),
+                        new WeightedEnchantment(ModEnchantments.LEAPING, 3, 20)
+
                 );
-                // FIX: (world, entity, random)
-                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 25), createRandomEnchantedBook(entity, random, masterPool, 0), 1, 100, 1.0f));
+                factories.add((world, entity, random) -> new TradeOffer(new TradedItem(Items.EMERALD, 15 + random.nextInt(35)), createRandomEnchantedBook(entity, random, masterPool, 35), 1, 80, 1.0f));
             });
         }
     }

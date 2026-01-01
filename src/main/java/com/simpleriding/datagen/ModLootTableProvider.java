@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -58,8 +59,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
 
 
-            // 5. BASTION (FUNNEL, BREAK THROUGH)
-            // + GOLD SLEDGEHAMMER, CORES
+            // 5. BASTION (TAILWIND, LEAPING)
             if (LootTables.BASTION_TREASURE_CHEST.equals(key) || LootTables.BASTION_OTHER_CHEST.equals(key)) {
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(0, 2))
@@ -68,7 +68,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 tableBuilder.pool(pool);
             }
 
-            // 6. NETHER BRIDGE (FUNNEL, BREAK THROUGH, STRIP_MINER, TAILWIND)
+            // 6. NETHER BRIDGE (TAILWIND)
             if (LootTables.NETHER_BRIDGE_CHEST.equals(key)) {
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(0, 1))
@@ -76,10 +76,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 tableBuilder.pool(pool);
             }
 
-            // 14. VAULT (Trial Chambers)
+            // 14. VAULT (LEAPING, TAILWIND)
             if (LootTables.TRIAL_CHAMBERS_REWARD_COMMON_CHEST.equals(key) || LootTables.TRIAL_CHAMBERS_REWARD_RARE_CHEST.equals(key)) {
-                LootPool.Builder pool = LootPool.builder().rolls(UniformLootNumberProvider.create(0, 1))
+                LootPool.Builder pool = LootPool.builder().rolls(UniformLootNumberProvider.create(0, 2))
                         .with(enchantedBook(ModEnchantments.LEAPING, 1, enchantments, 10))
+                        .with(enchantedBook(Enchantments.PROTECTION, 4, enchantments, 10))
                         .with(enchantedBook(ModEnchantments.TAILWIND, 1, enchantments, 10));
                 tableBuilder.pool(pool);
             }
