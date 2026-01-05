@@ -2,6 +2,7 @@ package com.simpleriding;
 
 import com.simpleriding.component.ModDataComponentTypes;
 import com.simpleriding.config.SimpleridingConfig;
+import com.simpleriding.datagen.ModLootTableProvider;
 import com.simpleriding.datagen.ModTradeOffers;
 import com.simpleriding.enchantment.ModEnchantmentEffects;
 import com.simpleriding.items.ModItemGroups;
@@ -32,6 +33,7 @@ public class Simpleriding implements ModInitializer {
 
 
         ModTradeOffers.registerModTradeOffers();
+        ModLootTableProvider.modifyLootTables();
         ModDataComponentTypes.registerDataComponentTypes();
         ModEnchantmentEffects.registerEnchantmentEffects();
     }

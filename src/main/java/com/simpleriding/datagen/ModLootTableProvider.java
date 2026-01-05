@@ -13,6 +13,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
+import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.SetComponentsLootFunction;
@@ -66,7 +67,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .with(enchantedBook(ModEnchantments.TAILWIND, 2, enchantments, 20))
                         .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 10))
                         .with(enchantedBook(ModEnchantments.LEAPING, 2, enchantments, 10))
-                        .with(enchantedBook(ModEnchantments.LEAPING, 3, enchantments, 5));
+                        .with(enchantedBook(ModEnchantments.LEAPING, 3, enchantments, 5))
+                        .with(EmptyEntry.builder().weight(30));
                 tableBuilder.pool(pool);
             }
 
@@ -75,7 +77,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(0, 1))
                         .with(enchantedBook(ModEnchantments.TAILWIND, 2, enchantments, 5))
-                        .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 10));
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 10))
+                        .with(EmptyEntry.builder().weight(20));
                 tableBuilder.pool(pool);
             }
 
@@ -86,7 +89,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .with(enchantedBook(ModEnchantments.LEAPING, 3, enchantments, 3))
                         .with(enchantedBook(ModEnchantments.TAILWIND, 2, enchantments, 10))
                         .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 3))
-                        .with(enchantedBook(Enchantments.PROTECTION, 4, enchantments, 10));
+                        .with(enchantedBook(Enchantments.PROTECTION, 4, enchantments, 10))
+                        .with(EmptyEntry.builder().weight(60));
                 tableBuilder.pool(pool);
             }
         });
