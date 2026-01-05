@@ -63,8 +63,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
             if (LootTables.BASTION_TREASURE_CHEST.equals(key) || LootTables.BASTION_OTHER_CHEST.equals(key)) {
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(0, 2))
-                        .with(enchantedBook(ModEnchantments.TAILWIND, 1, enchantments, 10))
-                        .with(enchantedBook(ModEnchantments.LEAPING, 1, enchantments, 5));
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 2, enchantments, 20))
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 10))
+                        .with(enchantedBook(ModEnchantments.LEAPING, 2, enchantments, 10))
+                        .with(enchantedBook(ModEnchantments.LEAPING, 3, enchantments, 5));
                 tableBuilder.pool(pool);
             }
 
@@ -72,16 +74,19 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
             if (LootTables.NETHER_BRIDGE_CHEST.equals(key)) {
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(0, 1))
-                        .with(enchantedBook(ModEnchantments.TAILWIND, 1, enchantments, 10));
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 2, enchantments, 5))
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 10));
                 tableBuilder.pool(pool);
             }
 
             // 14. VAULT (LEAPING, TAILWIND)
             if (LootTables.TRIAL_CHAMBERS_REWARD_COMMON_CHEST.equals(key) || LootTables.TRIAL_CHAMBERS_REWARD_RARE_CHEST.equals(key)) {
                 LootPool.Builder pool = LootPool.builder().rolls(UniformLootNumberProvider.create(0, 2))
-                        .with(enchantedBook(ModEnchantments.LEAPING, 1, enchantments, 10))
-                        .with(enchantedBook(Enchantments.PROTECTION, 4, enchantments, 10))
-                        .with(enchantedBook(ModEnchantments.TAILWIND, 1, enchantments, 10));
+                        .with(enchantedBook(ModEnchantments.LEAPING, 2, enchantments, 10))
+                        .with(enchantedBook(ModEnchantments.LEAPING, 3, enchantments, 3))
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 2, enchantments, 10))
+                        .with(enchantedBook(ModEnchantments.TAILWIND, 3, enchantments, 3))
+                        .with(enchantedBook(Enchantments.PROTECTION, 4, enchantments, 10));
                 tableBuilder.pool(pool);
             }
         });
